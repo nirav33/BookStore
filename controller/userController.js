@@ -32,8 +32,13 @@ export const signup = async (req,res)=>{
 
 export const login = async (req,res)=>{
     try {
+        console.log(req.body)
         const {email,password} = req.body;
         const user = await User.findOne({email});
+
+        if(!user){
+            return res.status(400).json({message:"Invalid username or password"});
+        }
 
         const isMatch =await bcryptjs.compare(password,user.password);
         
@@ -47,7 +52,7 @@ export const login = async (req,res)=>{
             }})
         }
     } catch (error) {
-        console.log("Error: ",error.message);
+        console.log("Error: ",error);
         res.status(500).json({message:"Internal server Error"})
     }
 }

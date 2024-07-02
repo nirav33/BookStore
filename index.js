@@ -9,7 +9,7 @@ const app = express()
 
 app.use(cors());
 app.use(express.json())
-app.use(express.static((path.resolve('public'))))
+app.use(express.static(path.resolve('public')))
 
 dotenv.config();
 const PORT = process.env.PORT
@@ -28,7 +28,6 @@ try {
 //Defining routes
 app.use('/api/book',bookRoute); 
 app.use('/api/user',userRoute);
-app.use('/api/devesh',(req,res)=>{res.json({success: true})})
 app.use('*', (req, res) => {
     res.sendFile(path.resolve('public', 'index.html'));
 })

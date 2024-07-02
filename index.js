@@ -9,7 +9,7 @@ const app = express()
 
 app.use(cors());
 app.use(express.json())
-app.use(express.static(path.resolve('build')))
+app.use(express.static(path.resolve('public')))
 
 dotenv.config();
 const PORT = process.env.PORT
@@ -32,7 +32,7 @@ app.get('/api/dev/',(req,res)=>{
     res.json({sucess: true});
 })
 app.use('*', (req, res) => {
-    res.sendFile(path.resolve('build', 'index.html'));
+    res.sendFile(path.resolve('public', 'index.html'));
 })
 
 

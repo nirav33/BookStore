@@ -10,6 +10,10 @@
       "dest": "/index.js"
     },
     {
+      "src": "/(favicon.ico|robots.txt)",
+      "dest": "/public/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/public/index.html"
     }

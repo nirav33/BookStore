@@ -28,6 +28,9 @@ try {
 //Defining routes
 app.use('/api/book',bookRoute); 
 app.use('/api/user',userRoute);
+app.get('/api/dev/',(req,res)=>{
+    res.json({sucess: true});
+})
 app.use('*', (req, res) => {
     res.sendFile(path.resolve('public', 'index.html'));
 })

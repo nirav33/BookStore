@@ -10,12 +10,8 @@
       "dest": "/index.js"
     },
     {
-      "src": "/",
+      "src": "/(.*)",
       "dest": "/public/index.html"
-    },
-    {
-      "src": "/(.+)",
-      "dest": "/public/$1"
     }
   ]
 }
